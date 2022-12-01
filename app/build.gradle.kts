@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.kotlinQA)
     alias(libs.plugins.dokka)
     alias(libs.plugins.taskTree)
+    jacoco
     application
 }
 
@@ -37,4 +38,11 @@ tasks.withType<Test>().configureEach {
 gitSemVer {
     buildMetadataSeparator.set("-")
     maxVersionLength.set(20)
+}
+
+tasks.jacocoTestReport {
+    reports {
+        xml.required.set(true)
+        html.outputLocation.set(layout.buildDirectory.dir("jacocoHtml"))
+    }
 }

@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.kotlinQA)
     alias(libs.plugins.dokka)
     alias(libs.plugins.taskTree)
+    alias(libs.plugins.sonarqube)
     jacoco
     application
 }
@@ -45,5 +46,13 @@ tasks.jacocoTestReport {
     reports {
         xml.required.set(true)
         html.outputLocation.set(layout.buildDirectory.dir("jacocoHtml"))
+    }
+}
+
+sonarqube {
+    properties {
+        property("sonar.projectKey", "FilippoVissani_ant-colony-simulation")
+        property("sonar.organization", "filippovissani")
+        property("sonar.host.url", "https://sonarcloud.io")
     }
 }

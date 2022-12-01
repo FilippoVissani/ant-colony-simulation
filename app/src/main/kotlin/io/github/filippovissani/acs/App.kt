@@ -1,21 +1,8 @@
 package io.github.filippovissani.acs
 
 /**
- *
- */
-class App {
-    /**
-     *
-     */
-    val greeting: String
-        get() {
-            return "Hello World!"
-        }
-}
-
-/**
- *
+ * Main function used to start the program.
  */
 fun main() {
-    println(App().greeting)
+    println()
 }

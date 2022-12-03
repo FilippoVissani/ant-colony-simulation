@@ -4,7 +4,10 @@ import io.github.filippovissani.acs.contracts.ControllerModule
 import io.github.filippovissani.acs.contracts.InputModule
 import io.github.filippovissani.acs.contracts.ModelModule
 import io.github.filippovissani.acs.contracts.OutputModule
-import io.github.filippovissani.acs.implementations.*
+import io.github.filippovissani.acs.implementations.ControllerModuleFactory
+import io.github.filippovissani.acs.implementations.InputModuleFactory
+import io.github.filippovissani.acs.implementations.ModelModuleFactory
+import io.github.filippovissani.acs.implementations.OutputModuleFactory
 
 interface ComponentRegistry :
     ModelModule.Component,

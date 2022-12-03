@@ -21,6 +21,7 @@ typealias PerceptionFiled = List<Pair<Int, Int>>
 typealias Path = List<Pair<Int, Int>>
 typealias Obstacle = Shape
 typealias Food = Shape
+typealias PheromonePathway = Pair<Int, Path>
 
 enum class AntState { SEARCHING, RETURNING }
 
@@ -29,19 +30,11 @@ interface Ant {
   val life: Double
   val perceptionFiled: PerceptionFiled
   val hasFood: Boolean
-  val path: Path
+  val memorizedPath: Path
   val state: AntState
 }
 
 interface Nest {
   val shape: Shape
   val foodQuantity: Int
-}
-
-interface Environment {
-  val nest: Nest
-  val obstacles: Set<Obstacle>
-  val food: Set<Food>
-  val bounds: Boundary<Int>
-  val activePaths: Set<Path>
 }

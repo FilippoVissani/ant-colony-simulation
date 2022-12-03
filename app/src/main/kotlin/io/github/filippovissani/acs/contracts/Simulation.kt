@@ -16,16 +16,16 @@
 
 package io.github.filippovissani.acs.contracts
 
-object ModelModule{
+interface SimulationState {
+  val ants: Set<Ant>
+  val environment: Environment
+  val virtualTime: Double
+}
 
-  interface Model{
-    val deltaTime: Double
-    fun moveAntsNextPosition(simulationState: SimulationState): SimulationState
-    fun ageEntities(simulationState: SimulationState): SimulationState
-    fun incrementVirtualTime(simulationState: SimulationState): SimulationState
-  }
-
-  interface Component {
-    val model: Model
-  }
+interface Environment {
+  val nest: Nest
+  val obstacles: Set<Obstacle>
+  val food: Set<Food>
+  val bounds: Boundary<Int>
+  val pheromonePathways: Set<PheromonePathway>
 }

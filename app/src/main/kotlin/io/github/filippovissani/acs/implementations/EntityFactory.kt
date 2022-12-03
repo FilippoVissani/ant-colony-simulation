@@ -45,7 +45,7 @@ object EntityFactory{
     override val life: Double,
     override val perceptionFiled: PerceptionFiled,
     override val hasFood: Boolean,
-    override val path: Path,
+    override val memorizedPath: Path,
     override val state: AntState,
     ) : Ant
 

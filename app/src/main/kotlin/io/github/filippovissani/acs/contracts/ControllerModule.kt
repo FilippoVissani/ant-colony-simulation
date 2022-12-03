@@ -16,6 +16,8 @@
 
 package io.github.filippovissani.acs.contracts
 
+typealias DisplayData = SimulationState
+
 object ControllerModule{
 
   interface Controller{

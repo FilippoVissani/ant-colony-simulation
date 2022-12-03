@@ -19,7 +19,7 @@ package io.github.filippovissani.acs.contracts
 object OutputModule{
 
   interface Output{
-    fun display()
+    fun display(displayData: DisplayData)
   }
 
   interface Component {

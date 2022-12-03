@@ -43,6 +43,5 @@ interface Environment {
   val obstacles: Set<Obstacle>
   val food: Set<Food>
   val bounds: Boundary<Int>
-  val ants: Set<Ant>
   val activePaths: Set<Path>
 }

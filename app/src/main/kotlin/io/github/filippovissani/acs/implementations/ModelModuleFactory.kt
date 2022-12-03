@@ -14,22 +14,14 @@
  * limitations under the License.
  */
 
-package io.github.filippovissani.acs.model
+package io.github.filippovissani.acs.implementations
 
-/**
- * Represents a pair of elements.
- * [x] is the first element.
- * [y] is the second element.
- */
-data class Pair<out X, out Y>(val x: X, val y: Y)
+import io.github.filippovissani.acs.contracts.ModelModule
 
-/**
- * Represents the bounds of a simulation.
- * [rightBound] > [leftBound] and [bottomBound] > [topBound]
- */
-data class Boundary<out T>(
-  val leftBound: T,
-  val rightBound: T,
-  val topBound: T,
-  val bottomBound: T,
-  )
+object ModelModuleFactory{
+  fun create(): ModelModule.Model = ModelImpl()
+
+  private class ModelImpl: ModelModule.Model {
+    override fun m(): Int = 1
+  }
+}

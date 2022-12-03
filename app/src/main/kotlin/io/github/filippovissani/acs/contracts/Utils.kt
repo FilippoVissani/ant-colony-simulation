@@ -14,15 +14,16 @@
  * limitations under the License.
  */
 
-package io.github.filippovissani.acs.model
+package io.github.filippovissani.acs.contracts
 
-import io.github.filippovissani.acs.contracts.Pair
-import io.kotest.core.spec.style.FunSpec
-import io.kotest.matchers.types.shouldBeTypeOf
+interface Pair<out X, out Y> {
+  val x: X
+  val y: Y
+}
 
-class PairTest : FunSpec({
-
-  test("Pair(0, 0) should be Pair of integers") {
-   Pair(0, 0).shouldBeTypeOf<Pair<Int, Int>>()
-  }
-})
+interface Boundary<out T> {
+  val leftBound: T
+  val rightBound: T
+  val topBound: T
+  val bottomBound: T
+}

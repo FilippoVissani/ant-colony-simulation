@@ -14,15 +14,19 @@
  * limitations under the License.
  */
 
-package io.github.filippovissani.acs.model
+package io.github.filippovissani.acs.implementations
+import io.github.filippovissani.acs.contracts.ControllerModule
 
-import io.github.filippovissani.acs.contracts.Pair
-import io.kotest.core.spec.style.FunSpec
-import io.kotest.matchers.types.shouldBeTypeOf
+object ControllerModuleFactory{
+  fun create(context: ControllerModule.Component): ControllerModule.Controller = ControllerImpl(context)
 
-class PairTest : FunSpec({
+  private class ControllerImpl(private val context: ControllerModule.Component): ControllerModule.Controller {
+    override fun startSimulation() {
+      TODO("Not yet implemented")
+    }
 
-  test("Pair(0, 0) should be Pair of integers") {
-   Pair(0, 0).shouldBeTypeOf<Pair<Int, Int>>()
+    override fun stopSimulation() {
+      TODO("Not yet implemented")
+    }
   }
-})
+}

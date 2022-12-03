@@ -14,15 +14,28 @@
  * limitations under the License.
  */
 
-package io.github.filippovissani.acs.model
+package io.github.filippovissani.acs.implementations
 
-import io.github.filippovissani.acs.contracts.Pair
-import io.kotest.core.spec.style.FunSpec
-import io.kotest.matchers.types.shouldBeTypeOf
+import io.github.filippovissani.acs.contracts.OutputModule
+import java.awt.Dimension
+import javax.swing.JFrame
 
-class PairTest : FunSpec({
+object OutputModuleFactory{
+  fun create(): OutputModule.Output = OutputImpl()
 
-  test("Pair(0, 0) should be Pair of integers") {
-   Pair(0, 0).shouldBeTypeOf<Pair<Int, Int>>()
+  private class OutputImpl(): OutputModule.Output {
+    private val frame = JFrame("Ant Colony Simulation")
+
+    init {
+      frame.defaultCloseOperation = JFrame.EXIT_ON_CLOSE
+      frame.size = Dimension(600, 400)
+      frame.setLocationRelativeTo(null)
+      frame.isVisible = true
+    }
+
+    override fun display() {
+
+    }
   }
-})
+}
+

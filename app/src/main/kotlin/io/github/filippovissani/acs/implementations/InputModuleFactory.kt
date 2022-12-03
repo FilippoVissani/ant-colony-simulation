@@ -14,15 +14,20 @@
  * limitations under the License.
  */
 
-package io.github.filippovissani.acs.model
+package io.github.filippovissani.acs.implementations
 
-import io.github.filippovissani.acs.contracts.Pair
-import io.kotest.core.spec.style.FunSpec
-import io.kotest.matchers.types.shouldBeTypeOf
+import io.github.filippovissani.acs.contracts.InputModule
 
-class PairTest : FunSpec({
+object InputModuleFactory{
+  fun create(context: InputModule.Component): InputModule.Input = InputImpl(context)
 
-  test("Pair(0, 0) should be Pair of integers") {
-   Pair(0, 0).shouldBeTypeOf<Pair<Int, Int>>()
+  private class InputImpl(private val context: InputModule.Component): InputModule.Input {
+    override fun btnStartPressed() {
+      TODO("Not yet implemented")
+    }
+
+    override fun btnStopPressed() {
+      TODO("Not yet implemented")
+    }
   }
-})
+}

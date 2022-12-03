@@ -14,22 +14,27 @@
  * limitations under the License.
  */
 
-package io.github.filippovissani.acs.model
+package io.github.filippovissani.acs.implementations
 
 import io.github.filippovissani.acs.contracts.Boundary
-import io.kotest.core.spec.style.FunSpec
-import io.kotest.matchers.types.shouldBeTypeOf
+import io.github.filippovissani.acs.contracts.Pair
 
-class BoundaryTest : FunSpec({
+object UtilsFactory{
+  fun <X, Y> createPair(x: X, y: Y): Pair<X, Y> = PairImpl(x, y)
 
-    val min = 0
-    val max = 10
-    val bounds: Boundary<Int> = Boundary(min, max, min, max)
+  fun <T> createBoundary(
+    leftBound: T,
+    rightBound: T,
+    topBound: T,
+    bottomBound: T,
+  ): Boundary<T> = BoundaryImpl(leftBound, rightBound, topBound, bottomBound)
 
-    test("Bounds should be type of Int") {
-        bounds.leftBound.shouldBeTypeOf<Int>()
-        bounds.rightBound.shouldBeTypeOf<Int>()
-        bounds.topBound.shouldBeTypeOf<Int>()
-        bounds.bottomBound.shouldBeTypeOf<Int>()
-    }
-})
+  private data class PairImpl<out X, out Y>(override val x: X, override val y: Y) : Pair<X, Y>
+
+  private data class BoundaryImpl<out T>(
+    override val leftBound: T,
+    override val rightBound: T,
+    override val topBound: T,
+    override val bottomBound: T,
+  ) : Boundary<T>
+}

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.filippovissani.acs.model
+package io.github.filippovissani.acs.contracts
 
 typealias Shape = Set<Pair<Int, Int>>
 typealias PerceptionFiled = List<Pair<Int, Int>>
@@ -24,22 +24,25 @@ typealias Food = Shape
 
 enum class AntState { SEARCHING, RETURNING }
 
-data class Ant(
-  val shape: Shape,
-  val life: Double,
-  val perceptionFiled: PerceptionFiled,
-  val hasFood: Boolean = false,
-  val path: Path = ArrayList(),
-  val state: AntState = AntState.SEARCHING,
-  )
+interface Ant {
+  val shape: Shape
+  val life: Double
+  val perceptionFiled: PerceptionFiled
+  val hasFood: Boolean
+  val path: Path
+  val state: AntState
+}
 
-data class Nest(val shape: Shape, val foodQuantity: Int)
+interface Nest {
+  val shape: Shape
+  val foodQuantity: Int
+}
 
-data class Environment(
-  val nest: Nest,
-  val obstacles: Set<Obstacle>,
-  val food: Set<Food>,
-  val bounds: Boundary<Int>,
-  val ants: Set<Ant>,
-  val activePaths: Set<Path>,
-)
+interface Environment {
+  val nest: Nest
+  val obstacles: Set<Obstacle>
+  val food: Set<Food>
+  val bounds: Boundary<Int>
+  val ants: Set<Ant>
+  val activePaths: Set<Path>
+}

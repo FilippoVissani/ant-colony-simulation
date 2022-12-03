@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package io.github.filippovissani.acs.implementations
+package io.github.filippovissani.acs.implementations.model
 
-import io.github.filippovissani.acs.contracts.Ant
-import io.github.filippovissani.acs.contracts.Environment
-import io.github.filippovissani.acs.contracts.SimulationState
+import io.github.filippovissani.acs.contracts.model.Ant
+import io.github.filippovissani.acs.contracts.model.Environment
+import io.github.filippovissani.acs.contracts.model.SimulationState
 
 object SimulationStateFactory {
   fun create(virtualTime: Double, environment: Environment, ants: Set<Ant>): SimulationState =

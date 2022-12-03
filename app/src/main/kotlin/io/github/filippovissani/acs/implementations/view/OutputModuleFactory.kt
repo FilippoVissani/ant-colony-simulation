@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package io.github.filippovissani.acs.implementations
+package io.github.filippovissani.acs.implementations.view
 
-import io.github.filippovissani.acs.contracts.DisplayData
-import io.github.filippovissani.acs.contracts.OutputModule
+import io.github.filippovissani.acs.contracts.controller.DisplayData
+import io.github.filippovissani.acs.contracts.view.OutputModule
 import java.awt.Dimension
 import javax.swing.JFrame
 

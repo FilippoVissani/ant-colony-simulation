@@ -1,10 +1,13 @@
 package io.github.filippovissani.acs
 
-import io.github.filippovissani.acs.contracts.ControllerModule
-import io.github.filippovissani.acs.contracts.InputModule
-import io.github.filippovissani.acs.contracts.ModelModule
-import io.github.filippovissani.acs.contracts.OutputModule
-import io.github.filippovissani.acs.implementations.*
+import io.github.filippovissani.acs.contracts.controller.ControllerModule
+import io.github.filippovissani.acs.contracts.view.InputModule
+import io.github.filippovissani.acs.contracts.model.ModelModule
+import io.github.filippovissani.acs.contracts.view.OutputModule
+import io.github.filippovissani.acs.implementations.controller.ControllerModuleFactory
+import io.github.filippovissani.acs.implementations.model.ModelModuleFactory
+import io.github.filippovissani.acs.implementations.view.InputModuleFactory
+import io.github.filippovissani.acs.implementations.view.OutputModuleFactory
 
 interface ComponentRegistry :
     ModelModule.Component,

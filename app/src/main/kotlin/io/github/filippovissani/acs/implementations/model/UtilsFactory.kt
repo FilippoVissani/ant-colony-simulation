@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package io.github.filippovissani.acs.implementations
+package io.github.filippovissani.acs.implementations.model
 
-import io.github.filippovissani.acs.contracts.Boundary
-import io.github.filippovissani.acs.contracts.Pair
+import io.github.filippovissani.acs.contracts.model.Boundary
+import io.github.filippovissani.acs.contracts.model.Pair
 
 object UtilsFactory{
   fun <X, Y> createPair(x: X, y: Y): Pair<X, Y> = PairImpl(x, y)

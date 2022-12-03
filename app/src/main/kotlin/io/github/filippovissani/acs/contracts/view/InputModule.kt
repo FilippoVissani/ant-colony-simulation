@@ -14,7 +14,9 @@
  * limitations under the License.
  */
 
-package io.github.filippovissani.acs.contracts
+package io.github.filippovissani.acs.contracts.view
+
+import io.github.filippovissani.acs.contracts.controller.ControllerModule
 
 object InputModule{
 

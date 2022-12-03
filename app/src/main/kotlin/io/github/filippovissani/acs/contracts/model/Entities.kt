@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.filippovissani.acs.contracts
+package io.github.filippovissani.acs.contracts.model
 
 typealias Shape = Set<Pair<Int, Int>>
 typealias PerceptionFiled = Set<Pair<Int, Int>>

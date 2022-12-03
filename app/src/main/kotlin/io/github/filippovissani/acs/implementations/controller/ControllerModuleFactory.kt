@@ -14,19 +14,19 @@
  * limitations under the License.
  */
 
-package io.github.filippovissani.acs.implementations
+package io.github.filippovissani.acs.implementations.controller
+import io.github.filippovissani.acs.contracts.controller.ControllerModule
 
-import io.github.filippovissani.acs.contracts.Shape
-import io.github.filippovissani.acs.contracts.Pair
+object ControllerModuleFactory{
+  fun create(context: ControllerModule.Component): ControllerModule.Controller = ControllerImpl(context)
 
-object ShapeFactory {
-  fun createRectangle(from: Pair<Int, Int>, to: Pair<Int, Int>): Shape {
-    var rectangle: Shape = HashSet()
-    for (i in from.x..to.x){
-      for (j in from.y..to.y){
-        rectangle = rectangle.plus(UtilsFactory.createPair(i, j))
-      }
+  private class ControllerImpl(private val context: ControllerModule.Component): ControllerModule.Controller {
+    override fun startSimulation() {
+      TODO("Not yet implemented")
     }
-    return rectangle
+
+    override fun stopSimulation() {
+      TODO("Not yet implemented")
+    }
   }
 }

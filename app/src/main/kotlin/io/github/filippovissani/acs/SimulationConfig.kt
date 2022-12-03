@@ -16,14 +16,14 @@
 
 package io.github.filippovissani.acs
 
-import io.github.filippovissani.acs.contracts.Ant
-import io.github.filippovissani.acs.contracts.Boundary
-import io.github.filippovissani.acs.contracts.Nest
-import io.github.filippovissani.acs.contracts.SimulationState
-import io.github.filippovissani.acs.implementations.EntityFactory
-import io.github.filippovissani.acs.implementations.ShapeFactory
-import io.github.filippovissani.acs.implementations.SimulationStateFactory
-import io.github.filippovissani.acs.implementations.UtilsFactory
+import io.github.filippovissani.acs.contracts.model.Ant
+import io.github.filippovissani.acs.contracts.model.Boundary
+import io.github.filippovissani.acs.contracts.model.Nest
+import io.github.filippovissani.acs.contracts.model.SimulationState
+import io.github.filippovissani.acs.implementations.model.EntityFactory
+import io.github.filippovissani.acs.implementations.model.ShapeFactory
+import io.github.filippovissani.acs.implementations.model.SimulationStateFactory
+import io.github.filippovissani.acs.implementations.model.UtilsFactory
 
 object SimulationConfig {
   const val DELTA_TIME = 0.1

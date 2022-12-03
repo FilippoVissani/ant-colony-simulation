@@ -14,20 +14,19 @@
  * limitations under the License.
  */
 
-package io.github.filippovissani.acs.implementations
+package io.github.filippovissani.acs.implementations.model
 
-import io.github.filippovissani.acs.contracts.InputModule
+import io.github.filippovissani.acs.contracts.model.Shape
+import io.github.filippovissani.acs.contracts.model.Pair
 
-object InputModuleFactory{
-  fun create(context: InputModule.Component): InputModule.Input = InputImpl(context)
-
-  private class InputImpl(private val context: InputModule.Component): InputModule.Input {
-    override fun btnStartPressed() {
-      TODO("Not yet implemented")
+object ShapeFactory {
+  fun createRectangle(from: Pair<Int, Int>, to: Pair<Int, Int>): Shape {
+    var rectangle: Shape = HashSet()
+    for (i in from.x..to.x){
+      for (j in from.y..to.y){
+        rectangle = rectangle.plus(UtilsFactory.createPair(i, j))
+      }
     }
-
-    override fun btnStopPressed() {
-      TODO("Not yet implemented")
-    }
+    return rectangle
   }
 }

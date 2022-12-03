@@ -14,18 +14,20 @@
  * limitations under the License.
  */
 
-package io.github.filippovissani.acs.contracts
+package io.github.filippovissani.acs.implementations.view
 
-typealias DisplayData = SimulationState
+import io.github.filippovissani.acs.contracts.view.InputModule
 
-object ControllerModule{
+object InputModuleFactory{
+  fun create(context: InputModule.Component): InputModule.Input = InputImpl(context)
 
-  interface Controller{
-    fun startSimulation()
-    fun stopSimulation()
-  }
+  private class InputImpl(private val context: InputModule.Component): InputModule.Input {
+    override fun btnStartPressed() {
+      TODO("Not yet implemented")
+    }
 
-  interface Component : ModelModule.Component, OutputModule.Component {
-    val controller: Controller
+    override fun btnStopPressed() {
+      TODO("Not yet implemented")
+    }
   }
 }

@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package io.github.filippovissani.acs.implementations
+package io.github.filippovissani.acs.implementations.model
 
-import io.github.filippovissani.acs.contracts.*
+import io.github.filippovissani.acs.contracts.model.*
 
 object EntityFactory{
   fun createAnt(

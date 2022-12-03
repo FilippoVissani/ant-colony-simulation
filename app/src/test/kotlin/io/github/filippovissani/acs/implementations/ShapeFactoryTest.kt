@@ -16,6 +16,8 @@
 
 package io.github.filippovissani.acs.implementations
 
+import io.github.filippovissani.acs.implementations.model.ShapeFactory
+import io.github.filippovissani.acs.implementations.model.UtilsFactory
 import io.kotest.core.spec.style.FunSpec
 import io.kotest.matchers.shouldBe
 

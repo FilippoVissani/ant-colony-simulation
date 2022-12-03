@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.filippovissani.acs.contracts
+package io.github.filippovissani.acs.contracts.model
 
 interface SimulationState {
   val ants: Set<Ant>

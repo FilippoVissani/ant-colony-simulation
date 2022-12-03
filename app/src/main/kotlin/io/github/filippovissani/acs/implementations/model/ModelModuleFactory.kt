@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package io.github.filippovissani.acs.implementations
+package io.github.filippovissani.acs.implementations.model
 
-import io.github.filippovissani.acs.contracts.ModelModule
-import io.github.filippovissani.acs.contracts.SimulationState
+import io.github.filippovissani.acs.contracts.model.ModelModule
+import io.github.filippovissani.acs.contracts.model.SimulationState
 
 object ModelModuleFactory{
   fun create(deltaTime: Double, configuration: SimulationState): ModelModule.Model =

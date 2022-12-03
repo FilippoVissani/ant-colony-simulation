@@ -14,19 +14,16 @@
  * limitations under the License.
  */
 
-package io.github.filippovissani.acs.implementations
-import io.github.filippovissani.acs.contracts.ControllerModule
+package io.github.filippovissani.acs.contracts.model
 
-object ControllerModuleFactory{
-  fun create(context: ControllerModule.Component): ControllerModule.Controller = ControllerImpl(context)
+interface Pair<out X, out Y> {
+  val x: X
+  val y: Y
+}
 
-  private class ControllerImpl(private val context: ControllerModule.Component): ControllerModule.Controller {
-    override fun startSimulation() {
-      TODO("Not yet implemented")
-    }
-
-    override fun stopSimulation() {
-      TODO("Not yet implemented")
-    }
-  }
+interface Boundary<out T> {
+  val leftBound: T
+  val rightBound: T
+  val topBound: T
+  val bottomBound: T
 }

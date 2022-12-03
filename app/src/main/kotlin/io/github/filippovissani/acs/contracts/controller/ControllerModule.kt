@@ -14,15 +14,22 @@
  * limitations under the License.
  */
 
-package io.github.filippovissani.acs.contracts
+package io.github.filippovissani.acs.contracts.controller
 
-object OutputModule{
+import io.github.filippovissani.acs.contracts.model.ModelModule
+import io.github.filippovissani.acs.contracts.model.SimulationState
+import io.github.filippovissani.acs.contracts.view.OutputModule
 
-  interface Output{
-    fun display(displayData: DisplayData)
+typealias DisplayData = SimulationState
+
+object ControllerModule{
+
+  interface Controller{
+    fun startSimulation()
+    fun stopSimulation()
   }
 
-  interface Component {
-    val output: Output
+  interface Component : ModelModule.Component, OutputModule.Component {
+    val controller: Controller
   }
 }

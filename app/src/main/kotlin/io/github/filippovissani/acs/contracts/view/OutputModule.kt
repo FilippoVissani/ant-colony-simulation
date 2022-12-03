@@ -14,16 +14,17 @@
  * limitations under the License.
  */
 
-package io.github.filippovissani.acs.contracts
+package io.github.filippovissani.acs.contracts.view
 
-interface Pair<out X, out Y> {
-  val x: X
-  val y: Y
-}
+import io.github.filippovissani.acs.contracts.controller.DisplayData
 
-interface Boundary<out T> {
-  val leftBound: T
-  val rightBound: T
-  val topBound: T
-  val bottomBound: T
+object OutputModule{
+
+  interface Output{
+    fun display(displayData: DisplayData)
+  }
+
+  interface Component {
+    val output: Output
+  }
 }

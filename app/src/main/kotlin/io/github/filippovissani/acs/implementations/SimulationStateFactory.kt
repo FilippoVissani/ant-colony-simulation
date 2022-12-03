@@ -24,6 +24,13 @@ object SimulationStateFactory {
   fun create(virtualTime: Double, environment: Environment, ants: Set<Ant>): SimulationState =
     SimulationStateImpl(virtualTime, environment, ants)
 
+  fun fromSimulationState(
+    simulationState: SimulationState,
+    virtualTime: Double = simulationState.virtualTime,
+    environment: Environment = simulationState.environment,
+    ants: Set<Ant> = simulationState.ants,
+  ): SimulationState = SimulationStateImpl(virtualTime, environment, ants)
+
   private data class SimulationStateImpl(
     override val virtualTime: Double,
     override val environment: Environment,

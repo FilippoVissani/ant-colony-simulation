@@ -39,7 +39,7 @@ A model that explains the behavior is as follows:
 5. When an ant finds food it returns to the nest following the opposite path and releasing pheromones
 6. Ants have a life cycle
 7. An initial amount of food is expected, which will decrease over the course of the simulation
-8. The reproductivity of ants is directly proportional to the amount of food present in the nest
+8. Ants use the food in the nest to reproduce
 9. Pheromone pathways, if not strengthened, tend to disappear
 10. If the same food source can be obtained by a shorter route, the ants will tend to follow that route
 11. There are obstacles in the environment that cannot be crossed

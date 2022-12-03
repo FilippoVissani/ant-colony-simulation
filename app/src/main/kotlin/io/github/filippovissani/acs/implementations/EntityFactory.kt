@@ -20,13 +20,13 @@ import io.github.filippovissani.acs.contracts.*
 
 object EntityFactory{
   fun createAnt(
-    shape: Shape,
+    position: Pair<Int, Int>,
     life: Double,
     perceptionFiled: PerceptionFiled,
     hasFood: Boolean = false,
     path: Path = ArrayList(),
     state: AntState = AntState.SEARCHING,
-    ): Ant = AntImpl(shape, life, perceptionFiled, hasFood, path, state)
+    ): Ant = AntImpl(position, life, perceptionFiled, hasFood, path, state)
 
   fun createNest(shape: Shape, foodQuantity: Int): Nest =
     NestImpl(shape, foodQuantity)
@@ -40,7 +40,7 @@ object EntityFactory{
   ): Environment = EnvironmentImpl(nest, obstacles, food, bounds, pheromonePathways)
 
   private data class AntImpl(
-    override val shape: Shape,
+    override val position: Pair<Int, Int>,
     override val life: Double,
     override val perceptionFiled: PerceptionFiled,
     override val hasFood: Boolean,

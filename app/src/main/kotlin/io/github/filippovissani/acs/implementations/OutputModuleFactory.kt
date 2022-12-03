@@ -16,6 +16,7 @@
 
 package io.github.filippovissani.acs.implementations
 
+import io.github.filippovissani.acs.contracts.DisplayData
 import io.github.filippovissani.acs.contracts.OutputModule
 import java.awt.Dimension
 import javax.swing.JFrame
@@ -33,8 +34,8 @@ object OutputModuleFactory{
       frame.isVisible = true
     }
 
-    override fun display() {
-
+    override fun display(displayData: DisplayData) {
+      TODO("Not yet implemented")
     }
   }
 }

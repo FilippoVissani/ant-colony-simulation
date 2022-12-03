@@ -17,7 +17,7 @@
 package io.github.filippovissani.acs.contracts
 
 typealias Shape = Set<Pair<Int, Int>>
-typealias PerceptionFiled = List<Pair<Int, Int>>
+typealias PerceptionFiled = Set<Pair<Int, Int>>
 typealias Path = List<Pair<Int, Int>>
 typealias Obstacle = Shape
 typealias Food = Shape
@@ -26,7 +26,7 @@ typealias PheromonePathway = Pair<Int, Path>
 enum class AntState { SEARCHING, RETURNING }
 
 interface Ant {
-  val shape: Shape
+  val position: Pair<Int, Int>
   val life: Double
   val perceptionFiled: PerceptionFiled
   val hasFood: Boolean

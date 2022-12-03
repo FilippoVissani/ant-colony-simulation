@@ -14,22 +14,17 @@
  * limitations under the License.
  */
 
-package io.github.filippovissani.acs.model
+package io.github.filippovissani.acs.implementations
 
-import io.github.filippovissani.acs.contracts.Boundary
 import io.kotest.core.spec.style.FunSpec
-import io.kotest.matchers.types.shouldBeTypeOf
+import io.kotest.matchers.shouldBe
 
-class BoundaryTest : FunSpec({
+class ShapeFactoryTest : FunSpec({
 
-    val min = 0
-    val max = 10
-    val bounds: Boundary<Int> = Boundary(min, max, min, max)
-
-    test("Bounds should be type of Int") {
-        bounds.leftBound.shouldBeTypeOf<Int>()
-        bounds.rightBound.shouldBeTypeOf<Int>()
-        bounds.topBound.shouldBeTypeOf<Int>()
-        bounds.bottomBound.shouldBeTypeOf<Int>()
-    }
+  test("Rectangle from (0, 0) to (2, 2) should have size 9") {
+    ShapeFactory.createRectangle(
+      UtilsFactory.createPair(0, 0),
+      UtilsFactory.createPair(2, 2)
+    ).size shouldBe 9
+  }
 })

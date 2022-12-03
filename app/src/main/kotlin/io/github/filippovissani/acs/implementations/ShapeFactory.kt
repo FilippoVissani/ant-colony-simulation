@@ -14,15 +14,19 @@
  * limitations under the License.
  */
 
-package io.github.filippovissani.acs.model
+package io.github.filippovissani.acs.implementations
 
+import io.github.filippovissani.acs.contracts.Shape
 import io.github.filippovissani.acs.contracts.Pair
-import io.kotest.core.spec.style.FunSpec
-import io.kotest.matchers.types.shouldBeTypeOf
 
-class PairTest : FunSpec({
-
-  test("Pair(0, 0) should be Pair of integers") {
-   Pair(0, 0).shouldBeTypeOf<Pair<Int, Int>>()
+object ShapeFactory {
+  fun createRectangle(from: Pair<Int, Int>, to: Pair<Int, Int>): Shape {
+    var rectangle: Shape = HashSet()
+    for (i in from.x..to.x){
+      for (j in from.y..to.y){
+        rectangle = rectangle.plus(UtilsFactory.createPair(i, j))
+      }
+    }
+    return rectangle
   }
-})
+}

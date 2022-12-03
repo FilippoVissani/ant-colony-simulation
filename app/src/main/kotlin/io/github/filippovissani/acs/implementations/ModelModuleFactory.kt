@@ -20,11 +20,10 @@ import io.github.filippovissani.acs.contracts.ModelModule
 import io.github.filippovissani.acs.contracts.SimulationState
 
 object ModelModuleFactory{
-  fun create(): ModelModule.Model = ModelImpl()
+  fun create(deltaTime: Double, configuration: SimulationState): ModelModule.Model =
+    ModelImpl(deltaTime, configuration)
 
-  private class ModelImpl: ModelModule.Model {
-    override val deltaTime: Double
-      get() = TODO("Not yet implemented")
+  private class ModelImpl(override val deltaTime: Double, val initialState: SimulationState): ModelModule.Model {
 
     override fun moveAntsNextPosition(simulationState: SimulationState): SimulationState {
       TODO("Not yet implemented")

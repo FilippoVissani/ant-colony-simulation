@@ -14,18 +14,19 @@
  * limitations under the License.
  */
 
-package io.github.filippovissani.acs.contracts
+package io.github.filippovissani.acs.implementations
 
-interface SimulationState {
-  val ants: Set<Ant>
-  val environment: Environment
-  val virtualTime: Double
-}
+import io.github.filippovissani.acs.contracts.Ant
+import io.github.filippovissani.acs.contracts.Environment
+import io.github.filippovissani.acs.contracts.SimulationState
 
-interface Environment {
-  val nest: Nest
-  val obstacles: Set<Obstacle>
-  val food: Set<Food>
-  val bounds: Boundary<Int>
-  val pheromonePathways: Set<PheromonePathway>
+object SimulationStateFactory {
+  fun create(virtualTime: Double, environment: Environment, ants: Set<Ant>): SimulationState =
+    SimulationStateImpl(virtualTime, environment, ants)
+
+  private data class SimulationStateImpl(
+    override val virtualTime: Double,
+    override val environment: Environment,
+    override val ants: Set<Ant>,
+    ) : SimulationState
 }

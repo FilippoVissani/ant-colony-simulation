@@ -38,3 +38,11 @@ interface Nest {
   val shape: Shape
   val foodQuantity: Int
 }
+
+interface Environment {
+  val nest: Nest
+  val obstacles: Set<Obstacle>
+  val food: Set<Food>
+  val bounds: Boundary<Int>
+  val pheromonePathways: Set<PheromonePathway>
+}

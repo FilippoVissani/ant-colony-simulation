@@ -17,11 +17,25 @@
 package io.github.filippovissani.acs.implementations
 
 import io.github.filippovissani.acs.contracts.ModelModule
+import io.github.filippovissani.acs.contracts.SimulationState
 
 object ModelModuleFactory{
   fun create(): ModelModule.Model = ModelImpl()
 
   private class ModelImpl: ModelModule.Model {
-    override fun m(): Int = 1
+    override val deltaTime: Double
+      get() = TODO("Not yet implemented")
+
+    override fun moveAntsNextPosition(simulationState: SimulationState): SimulationState {
+      TODO("Not yet implemented")
+    }
+
+    override fun ageEntities(simulationState: SimulationState): SimulationState {
+      TODO("Not yet implemented")
+    }
+
+    override fun incrementVirtualTime(simulationState: SimulationState): SimulationState {
+      TODO("Not yet implemented")
+    }
   }
 }

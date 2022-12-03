@@ -36,9 +36,8 @@ object EntityFactory{
     obstacles: Set<Obstacle>,
     food: Set<Food>,
     bounds: Boundary<Int>,
-    ants: Set<Ant>,
-    activePaths: Set<Path>,
-  ): Environment = EnvironmentImpl(nest, obstacles, food, bounds, activePaths)
+    pheromonePathways: Set<PheromonePathway>,
+  ): Environment = EnvironmentImpl(nest, obstacles, food, bounds, pheromonePathways)
 
   private data class AntImpl(
     override val shape: Shape,
@@ -59,6 +58,6 @@ object EntityFactory{
     override val obstacles: Set<Obstacle>,
     override val food: Set<Food>,
     override val bounds: Boundary<Int>,
-    override val activePaths: Set<Path>,
+    override val pheromonePathways: Set<PheromonePathway>
     ) : Environment
 }

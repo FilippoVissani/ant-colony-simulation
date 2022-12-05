@@ -56,3 +56,10 @@ sonarqube {
         property("sonar.host.url", "https://sonarcloud.io")
     }
 }
+
+val versioning = "versioning"
+
+tasks.register("printVersion") {
+    group = versioning
+    doLast { println(project.version) }
+}

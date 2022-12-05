@@ -1,0 +1,55 @@
+name: Delivery
+on:
+  workflow_run:
+    workflows:
+      - Check
+    types:
+      - completed
+    branches:
+      - main
+env:
+  PROJECT_NAME: ant-colony-simulation
+  WORKFLOW: Delivery
+jobs:
+  github-release:
+    name: Create GitHub Release
+    runs-on: ubuntu-latest
+    if: github.event.workflow_run.conclusion == 'success'
+    outputs:
+      version: ${{ steps.get-version.outputs.version }}
+    timeout-minutes: 120
+    concurrency:
+      # Only one release job at a time. Strictly sequential.
+      group: release-github
+    steps:
+      - name: Cache Build
+        uses: actions/cache@v3.0.11
+        with:
+          path: |
+            build
+            **/build
+          key: ${{ runner.os }}-gradle-build-${{ github.workflow }}-${{ github.event.number || github.ref }}
+
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Generate Jar
+        run: ./gradlew build
+
+      - name: Get Version
+        id: get-version
+        run: echo ::set-output name=version::$(./gradlew --console=plain -q printVersion)
+
+      - name: Release Assets
+        id: upload-release-assets
+        run: |
+          set -x
+          ASSETS=()
+          for A in **/build/**/*.jar; do
+            ASSETS+=("-a" "$A")
+            echo "Releasing $A"
+          done
+          hub release create "${ASSETS[@]}" -m "$RELEASE_TAG" "$RELEASE_TAG"
+        env:
+          RELEASE_TAG: ${{ steps.get-version.outputs.version }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

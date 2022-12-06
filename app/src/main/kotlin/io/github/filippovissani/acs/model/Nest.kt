@@ -14,20 +14,19 @@
  * limitations under the License.
  */
 
-package io.github.filippovissani.acs.implementations.view
+package io.github.filippovissani.acs.model
 
-import io.github.filippovissani.acs.contracts.view.InputModule
+interface Nest {
+  val shape: Shape
+  val foodQuantity: Int
 
-object InputModuleFactory{
-  fun create(context: InputModule.Component): InputModule.Input = InputImpl(context)
+  companion object{
+    fun create(shape: Shape, foodQuantity: Int): Nest =
+      NestImpl(shape, foodQuantity)
 
-  private class InputImpl(private val context: InputModule.Component): InputModule.Input {
-    override fun btnStartPressed() {
-      TODO("Not yet implemented")
-    }
-
-    override fun btnStopPressed() {
-      TODO("Not yet implemented")
-    }
+    private data class NestImpl(
+      override val shape: Shape,
+      override val foodQuantity: Int,
+    ) : Nest
   }
 }

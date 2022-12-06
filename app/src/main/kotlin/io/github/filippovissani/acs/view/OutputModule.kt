@@ -14,14 +14,35 @@
  * limitations under the License.
  */
 
-package io.github.filippovissani.acs.contracts.view
+package io.github.filippovissani.acs.view
 
-import io.github.filippovissani.acs.contracts.controller.DisplayData
+import io.github.filippovissani.acs.controller.DisplayData
+import java.awt.Dimension
+import javax.swing.JFrame
 
 object OutputModule{
 
   interface Output{
     fun display(displayData: DisplayData)
+
+    companion object{
+      fun create(): Output = OutputImpl()
+
+      private class OutputImpl(): Output {
+        private val frame = JFrame("Ant Colony Simulation")
+
+        init {
+          frame.defaultCloseOperation = JFrame.EXIT_ON_CLOSE
+          frame.size = Dimension(600, 400)
+          frame.setLocationRelativeTo(null)
+          frame.isVisible = true
+        }
+
+        override fun display(displayData: DisplayData) {
+          TODO("Not yet implemented")
+        }
+      }
+    }
   }
 
   interface Component {

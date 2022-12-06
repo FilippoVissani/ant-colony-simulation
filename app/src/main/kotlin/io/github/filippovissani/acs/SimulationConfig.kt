@@ -16,27 +16,29 @@
 
 package io.github.filippovissani.acs
 
-import io.github.filippovissani.acs.contracts.model.Ant
-import io.github.filippovissani.acs.contracts.model.Boundary
-import io.github.filippovissani.acs.contracts.model.Nest
-import io.github.filippovissani.acs.contracts.model.SimulationState
-import io.github.filippovissani.acs.implementations.model.EntityFactory
-import io.github.filippovissani.acs.implementations.model.ShapeFactory
-import io.github.filippovissani.acs.implementations.model.SimulationStateFactory
-import io.github.filippovissani.acs.implementations.model.UtilsFactory
+import io.github.filippovissani.acs.model.*
 
 object SimulationConfig {
-  const val DELTA_TIME = 0.1
-  val nest: Nest = EntityFactory.createNest(ShapeFactory.createRectangle(UtilsFactory.createPair(10, 10), UtilsFactory.createPair(12, 12)), 0)
-  val bounds: Boundary<Int> = UtilsFactory.createBoundary(0, 800, 0, 800)
-  val ant: Ant = EntityFactory.createAnt(
-    UtilsFactory.createPair(10, 10),
-    10.0,
-    ShapeFactory.createRectangle(UtilsFactory.createPair(8, 8), UtilsFactory.createPair(12, 12)),
+  val deltaTime = 0.1
+  val bound: Int = 800
+  val bounds: Boundary<Int> = Boundary.create(0, bound, 0, bound)
+  val nestPosition = Pair.create(400, 400)
+  val nestShape = ShapeFactory.rectangle(
+    Pair.create(nestPosition.x - 2, nestPosition.y - 2),
+    Pair.create(nestPosition.x + 2, nestPosition.y + 2),
+  )
+  val nest: Nest = Nest.create(
+    nestShape,
+    0,
     )
-  val initialState: SimulationState = SimulationStateFactory.create(
+  val ant: Ant = Ant.create(
+    Pair.create(10, 10),
+    10.0,
+    ShapeFactory.rectangle(Pair.create(8, 8), Pair.create(12, 12)),
+    )
+  val initialState: SimulationState = SimulationState.create(
     0.0,
-    EntityFactory.createEnvironment(
+    Environment.create(
       nest,
       HashSet(),
       HashSet(),

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.filippovissani.acs.contracts.model
+package io.github.filippovissani.acs.model
 
 object ModelModule{
 
@@ -23,6 +23,26 @@ object ModelModule{
     fun moveAntsNextPosition(simulationState: SimulationState): SimulationState
     fun ageEntities(simulationState: SimulationState): SimulationState
     fun incrementVirtualTime(simulationState: SimulationState): SimulationState
+
+    companion object{
+      fun create(deltaTime: Double, configuration: SimulationState): Model =
+        ModelImpl(deltaTime, configuration)
+
+      private class ModelImpl(override val deltaTime: Double, val initialState: SimulationState): Model {
+
+        override fun moveAntsNextPosition(simulationState: SimulationState): SimulationState {
+          TODO("Not yet implemented")
+        }
+
+        override fun ageEntities(simulationState: SimulationState): SimulationState {
+          TODO("Not yet implemented")
+        }
+
+        override fun incrementVirtualTime(simulationState: SimulationState): SimulationState {
+          TODO("Not yet implemented")
+        }
+      }
+    }
   }
 
   interface Component {

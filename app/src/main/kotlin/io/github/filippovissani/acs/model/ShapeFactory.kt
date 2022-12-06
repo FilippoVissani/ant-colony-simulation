@@ -14,22 +14,16 @@
  * limitations under the License.
  */
 
-package io.github.filippovissani.acs.contracts.controller
+package io.github.filippovissani.acs.model
 
-import io.github.filippovissani.acs.contracts.model.ModelModule
-import io.github.filippovissani.acs.contracts.model.SimulationState
-import io.github.filippovissani.acs.contracts.view.OutputModule
-
-typealias DisplayData = SimulationState
-
-object ControllerModule{
-
-  interface Controller{
-    fun startSimulation()
-    fun stopSimulation()
-  }
-
-  interface Component : ModelModule.Component, OutputModule.Component {
-    val controller: Controller
+object ShapeFactory {
+  fun rectangle(from: Pair<Int, Int>, to: Pair<Int, Int>): Shape {
+    var rectangle: Shape = HashSet()
+    for (i in from.x..to.x){
+      for (j in from.y..to.y){
+        rectangle = rectangle.plus(Pair.create(i, j))
+      }
+    }
+    return rectangle
   }
 }

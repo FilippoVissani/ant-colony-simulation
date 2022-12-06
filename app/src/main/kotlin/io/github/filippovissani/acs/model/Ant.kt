@@ -14,14 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.filippovissani.acs.contracts.model
-
-typealias Shape = Set<Pair<Int, Int>>
-typealias PerceptionFiled = Set<Pair<Int, Int>>
-typealias Path = List<Pair<Int, Int>>
-typealias Obstacle = Shape
-typealias Food = Shape
-typealias PheromonePathway = Pair<Int, Path>
+package io.github.filippovissani.acs.model
 
 enum class AntState { SEARCHING, RETURNING }
 
@@ -32,17 +25,24 @@ interface Ant {
   val hasFood: Boolean
   val memorizedPath: Path
   val state: AntState
-}
 
-interface Nest {
-  val shape: Shape
-  val foodQuantity: Int
-}
+  companion object{
+    fun create(
+      position: Pair<Int, Int>,
+      life: Double,
+      perceptionFiled: PerceptionFiled,
+      hasFood: Boolean = false,
+      path: Path = ArrayList(),
+      state: AntState = AntState.SEARCHING,
+    ): Ant = AntImpl(position, life, perceptionFiled, hasFood, path, state)
 
-interface Environment {
-  val nest: Nest
-  val obstacles: Set<Obstacle>
-  val food: Set<Food>
-  val bounds: Boundary<Int>
-  val pheromonePathways: Set<PheromonePathway>
+    private data class AntImpl(
+      override val position: Pair<Int, Int>,
+      override val life: Double,
+      override val perceptionFiled: PerceptionFiled,
+      override val hasFood: Boolean,
+      override val memorizedPath: Path,
+      override val state: AntState,
+    ) : Ant
+  }
 }

@@ -14,15 +14,29 @@
  * limitations under the License.
  */
 
-package io.github.filippovissani.acs.contracts.view
+package io.github.filippovissani.acs.view
 
-import io.github.filippovissani.acs.contracts.controller.ControllerModule
+import io.github.filippovissani.acs.controller.ControllerModule
 
 object InputModule{
 
   interface Input{
     fun btnStartPressed()
     fun btnStopPressed()
+
+    companion object{
+      fun create(context: Component): Input = InputImpl(context)
+
+      private class InputImpl(private val context: Component): Input {
+        override fun btnStartPressed() {
+          TODO("Not yet implemented")
+        }
+
+        override fun btnStopPressed() {
+          TODO("Not yet implemented")
+        }
+      }
+    }
   }
 
   interface Component  : ControllerModule.Component {

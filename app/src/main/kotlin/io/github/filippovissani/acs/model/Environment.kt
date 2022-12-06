@@ -18,24 +18,24 @@ package io.github.filippovissani.acs.model
 
 interface Environment {
   val nest: Nest
-  val obstacles: Set<Obstacle>
-  val food: Set<Food>
+  val obstacles: Set<Pair<Int, Int>>
+  val food: Set<Pair<Int, Int>>
   val bounds: Boundary<Int>
   val pheromonePathways: Set<PheromonePathway>
 
   companion object{
     fun create(
       nest: Nest,
-      obstacles: Set<Obstacle>,
-      food: Set<Food>,
+      obstacles: Set<Pair<Int, Int>>,
+      food: Set<Pair<Int, Int>>,
       bounds: Boundary<Int>,
       pheromonePathways: Set<PheromonePathway>,
     ): Environment = EnvironmentImpl(nest, obstacles, food, bounds, pheromonePathways)
 
     private data class EnvironmentImpl(
       override val nest: Nest,
-      override val obstacles: Set<Obstacle>,
-      override val food: Set<Food>,
+      override val obstacles: Set<Pair<Int, Int>>,
+      override val food: Set<Pair<Int, Int>>,
       override val bounds: Boundary<Int>,
       override val pheromonePathways: Set<PheromonePathway>
     ) : Environment

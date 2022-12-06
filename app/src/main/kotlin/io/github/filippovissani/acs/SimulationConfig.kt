@@ -22,7 +22,7 @@ object SimulationConfig {
   val deltaTime = 0.1
   val bound: Int = 800
   val bounds: Boundary<Int> = Boundary.create(0, bound, 0, bound)
-  val nestPosition = Pair.create(400, 400)
+  val nestPosition = Pair.create(4, 4)
   val nestShape = ShapeFactory.rectangle(
     Pair.create(nestPosition.x - 2, nestPosition.y - 2),
     Pair.create(nestPosition.x + 2, nestPosition.y + 2),
@@ -31,20 +31,23 @@ object SimulationConfig {
     nestShape,
     0,
     )
-  val ant: Ant = Ant.create(
-    Pair.create(10, 10),
-    10.0,
-    ShapeFactory.rectangle(Pair.create(8, 8), Pair.create(12, 12)),
-    )
+  val ants = (1..100).map { _ ->
+    Ant.create(
+      nestPosition,
+      10.0,
+      10,
+      ) }.toSet()
+  val obstacles = (10..400 step 2).map { x -> Pair.create(x, 400) }.toSet()
+  val food = (10..400 step 5).map { x -> Pair.create(x, 600) }.toSet()
   val initialState: SimulationState = SimulationState.create(
     0.0,
     Environment.create(
       nest,
-      HashSet(),
-      HashSet(),
+      obstacles,
+      food,
       bounds,
       HashSet(),
     ),
-    HashSet<Ant>().plus(ant)
+    ants
   )
 }

@@ -17,10 +17,7 @@
 package io.github.filippovissani.acs.model
 
 typealias Shape = Set<Pair<Int, Int>>
-typealias PerceptionFiled = Set<Pair<Int, Int>>
 typealias Path = List<Pair<Int, Int>>
-typealias Obstacle = Shape
-typealias Food = Shape
 typealias PheromonePathway = Pair<Int, Path>
 
 interface Pair<out X, out Y> {

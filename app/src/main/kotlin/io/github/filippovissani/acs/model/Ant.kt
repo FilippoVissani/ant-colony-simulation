@@ -21,7 +21,7 @@ enum class AntState { SEARCHING, RETURNING }
 interface Ant {
   val position: Pair<Int, Int>
   val life: Double
-  val perceptionFiled: PerceptionFiled
+  val perceptionFiled: Int
   val hasFood: Boolean
   val memorizedPath: Path
   val state: AntState
@@ -30,7 +30,7 @@ interface Ant {
     fun create(
       position: Pair<Int, Int>,
       life: Double,
-      perceptionFiled: PerceptionFiled,
+      perceptionFiled: Int,
       hasFood: Boolean = false,
       path: Path = ArrayList(),
       state: AntState = AntState.SEARCHING,
@@ -39,7 +39,7 @@ interface Ant {
     private data class AntImpl(
       override val position: Pair<Int, Int>,
       override val life: Double,
-      override val perceptionFiled: PerceptionFiled,
+      override val perceptionFiled: Int,
       override val hasFood: Boolean,
       override val memorizedPath: Path,
       override val state: AntState,

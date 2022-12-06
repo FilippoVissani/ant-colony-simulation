@@ -16,16 +16,17 @@
 
 package io.github.filippovissani.acs.implementations
 
-import io.github.filippovissani.acs.implementations.model.ShapeFactory
+import io.github.filippovissani.acs.model.ShapeFactory
 import io.kotest.core.spec.style.FunSpec
 import io.kotest.matchers.shouldBe
+import io.github.filippovissani.acs.model.Pair
 
 class ShapeFactoryTest : FunSpec({
 
   test("Rectangle from (0, 0) to (2, 2) should have size 9") {
-    ShapeFactory.createRectangle(
-      UtilsFactory.createPair(0, 0),
-      UtilsFactory.createPair(2, 2)
+    ShapeFactory.rectangle(
+      Pair.create(0, 0),
+      Pair.create(2, 2)
     ).size shouldBe 9
   }
 })

@@ -17,7 +17,7 @@ kotlin-testing = [
 
 [plugins]
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
-gitSemVer = "org.danilopianini.git-sensitive-semantic-versioning-gradle-plugin:0.3.24"
+gitSemVer = "org.danilopianini.git-sensitive-semantic-versioning-gradle-plugin:0.3.25"
 dokka = "org.jetbrains.dokka:1.7.20"
 kotlinQA = "org.danilopianini.gradle-kotlin-qa:0.29.1"
 taskTree = "com.dorongold.task-tree:2.1.0"
